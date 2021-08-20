@@ -1,4 +1,4 @@
-\documentclass[12pt,spanish,openany,letterpaper,pagesize]{scrbook} %le quite ,fleqn despues de spanish
+\documentclass[12pt,english,openany,letterpaper,pagesize]{scrbook} %le quite ,fleqn despues de spanish
 %\usepackage{pdflscape} %nuevo
 %\usepackage{tikz}      %nuevo
 %\usepackage{gantt}     %nuevo
@@ -19,7 +19,7 @@
 \usepackage{subfigure}
 \usepackage{longtable}
 \usepackage[utf8]{inputenc}
-\usepackage[spanish]{babel}
+\usepackage[english]{babel}
 \usepackage{xcolor,graphicx}
 \usepackage{fancyhdr}
 \usepackage{hyperref}
@@ -28,7 +28,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{amsmath}
-\spanishdecimal{,}
+%\spanishdecimal{,}
 
 
 \usepackage{rotating} %Para rotar texto, objetos y tablas seite. No se ve en DVI solo en PS. Seite 328 Hundebuch
@@ -49,6 +49,9 @@
 \rhead[\fancyplain{}{\leftmark}]{\fancyplain{}{\thepage}}
 \fancyfoot{}
 \thispagestyle{fancy}%
+
+%Renaming Figures
+\renewcommand\figurename{Fig.}
 
 
 \addtolength{\headwidth}{0cm}

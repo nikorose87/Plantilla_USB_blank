@@ -1,51 +1,150 @@
 \cleardoublepage %poner esta linea al inicio de cada capitulo
 \chapter{Introduction}
-Particularly, due to the fact that in Colombian restaurants not all the sanitary protocols are always followed properly, it is common to get sick due to this issue \citep{florez2011factores}. In this article, the factors related to illnesses transmitted through food in restaurants of 5 Colombian cities are discussed, $300$ establishments and $1522$ food handlers were surveyed, a microbiological hands inspection was carried out in the food handlers, $1286$ of them were subjected to fecal culture examination, finding the following: intestinal parasites in $26.9\%$; $49$ subjects with $3.8\%$ were positive for pathogenic parasites, six subjects showed $0.46\%$ pathogenic enterobacteriaceae. Finally, $0.52\%$ were found in six subjects for Staphylococcus aureus. 
+Particularly, due to the fact that in Colombian restaurants not all the sanitary protocols are always followed properly, it is common to get sick due to this issue \citep{florez2011factores}. In this article, the factors related to illnesses transmitted through food in restaurants of 5 Colombian cities are discussed, $300$ establishments and $1522$ food handlers were surveyed, a microbiological hands inspection was carried out in the food handlers, $1286$ of them were subjected to fecal culture examination, finding the following: intestinal parasites in $346$ subjects with $26.9\%$; $49$ subjects with $3.8\%$ were positive for pathogenic parasites, six subjects showed $0.46\%$ pathogenic enterobacteriaceae. Finally, $0.52\%$ were found in six subjects for Staphylococcus aureus. 
 
 The main cause for this sanitary problem is the food manipulation by humans, that can be avoided by the implementation of mobile robots in food services since it conducts autonomous transport activities in the serving work-space. We assume that the less human manipulation of food, the easier to maintain a high level of hygiene. Moreover, restaurant's efficiency might be improved by automating the whole process of serving. In order to perform this task, the robot should contain certain functions, for instance, the perception of its environment and the ability to avoid static and dynamic obstacles, as well as specific tasks such as detecting the table to which it is required to take \--- or deliver \--- the food plate.
+
+%You will need to introduce the usefullness of ARuco markers in the 
 
 %something that can be very useful in a restaurant for transport of food dishes, making easier to maintain a high level of hygiene and even improve the restaurant's efficiency.
 
 
 \section{Problem statement}
 
-On the one hand, restaurants present inconveniences in terms of health factors in food handling and, on the other hand, the effect on health in workers who perform repetitive activities causing exhaustion due to effort from constant loads during most of the day, without excepting the occupational risks to which they are exposed. In the current context, there is the affection of COVID-19, which recommends avoiding social interaction, where the use of robots contributes to solving the problem by avoiding contact between the waiter-client and where the  robot materials reduce the risk of virus transmission due to the ease with which its components can be disinfected.
+On the one hand, restaurants showed inconveniences in terms of employees health factors. Disregarding the occupational risks workers are exposed, the degeneration of the overall health due to repetitive tasks such as the constant loads during for more than twelve hours per day is a matter of concern.
+%
+On the other hand, nowadays due to the COVID-19 pandemic problem, the WHO recommended avoiding social interaction in common places as restaurants, where the implementation of mobile robots will contribute to keep this suggestion because of the waiter-client interaction is avoided and, robot materials reduce the risk of virus transmission thanks to the ease of components disinfection.
+
 
 \section{Justification and research question}
-Which tracking system in a mobile robot will be able to perform the functions preset by the waiter for the delivery of food dishes in restaurants?
 
-\subsection{Justification}
-The realization of this project serve to improve the efficiency and the sanitation in different restaurants, where the most of them have uncontrollable sanitation problems, these problems can be generated due to the waiter's repetitive tasks which require high concentration to keep a controlled sanitation, our thesis solve this problems because the mobile robot can have the same efficiency all day without sanitation´s problems.   
+Which tracking system in a mobile robot will be able to perform predefined food serving functions for the delivery dishes in indoor restaurants?
+
+\subsection{Motivation}
+
+The motivation of this project serves to improve the serving efficiency and the restaurant's sanitation. In which, uncontrollable hygiene problems are commonly shown, these problems are due to the waiter's repetitive tasks which require higher focus to keep a healthy environment. Our project solves this problems because the mobile robot can have the same efficiency all day with less sanitation´s problems.   
 
 \section{Objectives}
 
 \subsection{General objective}
-Propose a follow-up methodology for a mobile robot that make the delivery service in a restaurant  using ArUco markers. 
+
+Propose a mobile robot that make the delivery service in a restaurant  using ArUco markers. 
+
 \subsection{Specific objectives}
 \begin{itemize}
-	\item Determine the technical requirements (Hardware and software) for the prototype
-	 implementation.
+	\item Determine the technical requirements (Hardware and software) for the prototype implementation.
 	\item Implement the programmable framework for the movement and vision systems on the mobile robot. 
-	\item Validate the follow-up methodology for a prototype implementation environment.
+	\item Verify the mobile robot functionality in real-world implementations.
 \end{itemize}
 
 
 \section{Scope and limitations}
 \textbf{Scope:}
 
-The current study will only cover restaurants which have an uniform surface and if the restaurants have different floors the restaurants have to count with their respective ramps.
+The current study will only cover restaurants which have even surfaces and, if those places are composed of different floors, they must to count with their respective ramps.
 
 \textbf{Limitations:}
 
-The mobile robot will work according with the optimal operating conditions. On the other hand, it is not intended to create a mobile robot that performs functions other than the delivery and receipt of food dishes.
+The mobile robot will work with the optimal operating conditions subjected to our resources. On the other hand, it is not intended to create a mobile robot that performs functions other than the delivery and receipt of food dishes.
 
 \cleardoublepage
 \chapter{Preliminaries and related work}
-In the following table you can find some applications that are indirectly related with this thesis:
+
+
+\section{Mobile robots}
+
+The mobile robots are a widely studied field of robotics, they have been explored due to their useful applications, we can find different type of robots like differential drive robots \citep{akhtar2011dynamic}, three wheeled omnidirectional robots \citep{hacene2019fuzzy} or, car-like robots \citep{wang2021training}. These classes performs moving in different ways, for instance, the omnidirectional class is able to move any direction without restrictions, whereas a differential drive and the car-like robot show mechanical limitations for rotating.
+
+There are two main methods for the representation of the robots, the kinematic and the dynamic model. A kinematic model can be simpler than the dynamic model as mentioned by \citep{akhtar2011dynamic}. However, a dynamic model will be more useful if controlling the torques in each wheel is required, as shown in \citep{arcos2019optimal}. Even though the measurement of the current (with sensors) in each motor is needed, which implies more expensive and complicated robot to deal with.  
+
+%Check this paragraph
+In the study from \citep{wang2021training}, it was presented a mobile robot platform used for Smart Manufacturing (SM) that integrates a vision-based operation for the tracking and manipulation of objects, a LiDAR (Laser Imaging Detection and Ranging) to sense the surrounding environment, an IMU (Inertial Measurement Unit) to get the pose of the robot, and finally, an ultrasonic sensors for distance measuring between obstacles and the robot. This can be categorized as a robust robot in function of the hardware peripherals and software design, making possible to reach a high autonomy level and, being able to avoid obstacles, reach a target point, detect collisions and lastly, planning the manipulator and platform paths.     
+
+\begin{figure}[h!]
+    \centering
+ 	\includegraphics[trim=0 0 0 0,clip,width=0.5\textwidth]{Figs/Robot_types.png}
+    \caption{A variety of commercial mobile robots available.}
+    \label{fig:Aruco_bits}
+\end{figure}
+
+
+\subsection{Obstacle avoidance}
+
+A fundamental aspect of the proposed mobile robot is the obstacle avoidance due to its capability to response at the different situations that affects its environment, Moreover, in \citep{azeta2019obstacle} study was implemented the  Arduino Uno micro-controller, a Wi-Fi module, an Arduino motor shield driver to give control, a HC-SR04 ultrasonic sensor, and, geared motors to provide locomotion to the robot. The main programming language implemented was C++. The sensor emits an ultrasonic pulse each $0.3$s to detect any obstruction between $2$cm  and $400$cm. Finally, for the power supply a $7.4$V 2400mAh lithium polymer battery was implemented.
+
+Offenly, It is possible to combine behaviors like wall following and obstacle avoidance \citep{hacene2019fuzzy}, that facilitates a simpler design. The common method to deal with the obstacle avoidance is to define first a safety distance and, in case of sensors detect a distance under that limit, the robot will switch behaviors, from the main to the obstacle avoidance. The definition of its rules are based on which sensors have detected an obstacle \citep{tzou2009high} \citep{hacene2019fuzzy}, this is a suitable option when no artificial intelligence nor complex techniques are used for the avoidance, although this may reduce the efficiency to complete the main task.
+
+Furthermore, in the \citep{arcos2019optimal} study it was showed another possibility to avoid an obstacle. This consists of implementing a time polynomial function to define the obstacle's position. The method was used to satisfy such constraints, computes the euclidean distance between the center of the robot, and the center of the obstacle. That difference should be bigger than a safety distance, determined by the radius of the robot and the obstacle, plus a factor of security.
+
+%Checked by Nikolay Prieto 8/20/2021
+
+\subsection{Speed control}
+The next step for the mobile robot was its movement for this we knew that we had to use control techniques to control the robot´s speed this is how we found this document \citep{abril2012analisis} that talks about if it´s necessary implement a control on a line tracker robot, because of this they made a comparison between a line tracker robot with fuzzy control that is a control technique that allows to work with information that is not accurate and the same robot but with a classic control. At the end of the document they conclude that with fuzzy control the mobile robot Robotino follows the desired trajectory receiving controller speeds up over 250m/s until 750m/s, on the other hand with the classic control the mobile robot Robotino can complete the desired trajectory but just with low speeds in addition we find another document that talks about the speed control with a PID controller, in \citep{thanh2019restaurant} they did a restaurant serving robot using double line-sensors following approach in combination with PID controller for stable speed outcome, the mobile robot is programmed to go to a specific table by mapping data and come back when it´s completed the task.Based on the line reading algorithm from two LED array line sensors implemented on micro controller.
+
+\subsection{Location system}
+Another thing to take in account its the location system because we need the real position of the robot to calculate the errors for the control that´s why we search how can we get the pose and position of the robot and we found this\citep{yuan2016rgb} where they did a location system with an Extend Kalman Filter(EKF) method to calculate robot position and pose also in \citep{tzou2009high} they made a location system using laser positioning system. The laser positioning system is used for rapid and precise positioning and guidance of the mobile robot. In other matters we found this document \citep{oltean2010position} that talks about a mobile robot that use 3 RFID readers with 13.56 MHz frequency are on the bottom of the robot and detect the RFID tags that are in the range of magnetic field of three RFID readers the RFID readers will obtain the absolute coordinates stored in the RFID tag and that´s how the robot reach the tables.The size of the RFID reader antenna
+is 2.2 2.2 × cm and the size of the tag is 2.8 2.8 × cm.
+
+
+
+
+\section{Fiducial markers}
+
+
+
+\subsection{ArUco markers}
+ArUco markers are very used for pose estimation and to implement automatic follow-up, for example, in the study of \citep{bacik2017autonomous} where ArUco markers are used for the navigation of a quadrocopter to make it follow a desired trajectory without any additional sensor, just using ArUco markers, in addition, they used ROS (Robotic Operating System), the open source software which is used for the mapping algorithms in that case. In \citep{jimenez2018sistema} we can see another application, in this case the cameras are static and the objective is to follow a object in the range vision of the cameras, the ArUco marker is used as a reference point for the pose estimation, which is cooperative, so it's necessary to combine the information of the two cameras to get better results. The fact that the cameras are statics is a problem when the object moves far away from the range vision, it's really important to have that in consideration as well as the issues that can generate the lighting changes in the environment at the moment of the detection. 
+
+The resolution of the cameras didn't mean a significant change in the results of the detection as is concluded in \citep{kalaitzakis2021fiducial}, while things like contrast, white balance and images produced with smoother edges can decrease the accuracy and precision of the detection. ArUco had similar results in therms of detection rate compared with other fiducial markers like STag, AprilTag and ARTag, requires less hardware resources, so it’s implementation can be cheaper, it had really good results but it’s sensitive to small markers size and larger distances as is mentioned too in \citep{ferrao2018detection}.     
+
+The implementation of the mobile robots affect positively the efficiency of a restaurant and also mitigate some charges that would have a human. We can see in this surveys the problems that present a normal restaurant.
+
+
+In the study of \citep{florez2011factores} you can see surveys conducted about sanitation problems in some restaurants, some of those problems are simultaneous handling of money and food (17\%), wearing jewlery (15,2\%),Long fingernails (8,9\%) inter alia. On the other hand in \citep{armendariz2012riesgos} they talk about the health problems of workers also they carried out surveys with these results:
+
+\begin{itemize}
+\item 100\% of the waiters expressed high level concentration and physical efforts.
+\item 87\% expressed forced work postures.
+ 
+\item 80\% expressed that heavy handling is a risk in their professions.
+
+\end{itemize}
+
+
+\section{ROS} 
+ ROS is a middleware that allows to control robots and make simulations quite close to the reality, it have been used most frequently in the recent years but it can be explored more, in \citep{osio2018desenvolupament} and \citep{zhang2020robot} are presented applications to real mobile robots through ROS where is remarkable the possibility of send commands to the robot using the local network and the easy integration of the computer vision with ROS. Another field of robotics where the use of ROS can be found is in the control of industrial arms as is presented in \citep{arents2018integration} where they integrate computer vision, artificial intelligence and the software Move It!, and as is mentioned there are ROS libraries, drivers and tools created for interfacing with industrial robots that prove the importance of ROS and how it can make the robot programming an easier task.
+ 
+
+Finally, in the Table \ref{tab:related_work_direct} you related applications that inspired our project:
+
+
+\begin{table}[h!]
+\caption{Direct applications}\label{tab:related_work_direct}
+\begin{centering}
+\begin{tabular}{>{\centering}p{7cm}>{\centering}p{4cm}}
+\hline 
+\raggedright{}Description & \raggedright{}Reference\tabularnewline
+\hline 
+\raggedright{Implemetation of a waiter robot on a Pioneer 3DX robot} & \raggedright{}\citep{escudero2012robot}\tabularnewline
+\hline 
+\raggedright{}Mapping and location with a depth camera and movement base with gyroscope and odometry & \raggedright{}\citep{zhang2016approach}\tabularnewline
+\hline 
+\raggedright{}PID controller for stable speed and double-line sensor& \raggedright{}\citep{thanh2019restaurant}\tabularnewline
+\hline 
+\raggedright{}Reinforcement Q-learning PID Controller for a Restaurant Mobile Robot with Double Line-Sensors & \raggedright{}\citep{thanh2020reinforcement}\tabularnewline
+\hline 
+\raggedright{}Fuzzy Logic Based Control for Autonomous Mobile Robot Navigation& \raggedright{}\citep{omrane2016fuzzy}\tabularnewline
+\hline 
+\raggedright{}2 types of robots one to take the order and another to recive the dishes & \raggedright{}\citep{eksiri2015restaurant}\tabularnewline
+\hline 
+\end{tabular}
+\par\end{centering}
+\end{table}
+
 
 \begin{center}
 \begin{table}[h!]
-\caption{Indirect applications}
+\caption{Indirect applications}\label{tab:related_work_indirect}
 \centering{}%
 \begin{tabular}{>{\raggedright}p{4cm}>{\raggedright}p{4cm}>{\raggedright}p{4cm}}
 \hline 
@@ -69,98 +168,7 @@ through Labview & \raggedright{}\citep{abril2012analisis}\tabularnewline
 \par\end{center}
 
 
-\section{Mobile robots}
 
-The mobile robots are a widely studied field of robotics, they have been explored a lot due to their useful applications, we can find different type of robots like differential drive robots \citep{akhtar2011dynamic}, three wheeled omnidirectional robots \citep{hacene2019fuzzy}, and car-like robots \citep{wang2021training}. These types move in different ways, for example, the omnidirectional robots can move in any direction at any moment while a differential drive and the car-like robot don't due to mechanical limitations.
-There are two main ways for the representation of the robots, the kinematic and the dynamic model. A kinematic model can be simpler than the dynamic model as is mentioned in \citep{akhtar2011dynamic}, although a dynamic model is better if we want to control the torques in each wheel as is presented in \citep{arcos2019optimal}, but this require to know the current in each motor through sensors, something that can be traduced as a more expensive and complicated robot to deal with.  
-\citep{wang2021training} presented a mobile robot platform used for smart manufacturing (SM) that integrates a vision-based operation for the tracking and manipulation of objects, a LiDAR to sense the surrounding environment, an IMU to get the POSE of the robot and ultrasonic sensors for distance measuring between obstacles and the robot. This is a really complete robot in therms of hardware and software design, making it possible to reach a high autonomy level, being able to avoid obstacles, reach a target point, detect collisions and finally plan the manipulator and platform paths.     
-
-\begin{figure}[h!]
-    \centering
- 	\includegraphics[trim=0 0 0 0,clip,width=0.5\textwidth]{Figs/Robot_types.png}
-    \caption{Different types of robots}
-    \label{fig:Aruco_bits}
-\end{figure}
-
-
-\subsection{Obstacle avoidance}
-An important part for our mobile robot is the obstacle avoidance because it have to be able to response to the different situations that can affect its behaviour, In \citep{azeta2019obstacle}, they implemented the system using micro-controller Arduino Uno, a Wi-Fi module, an Arduino motor shield driver which controls the robot through the geared motors. The language that they used was C++ and the sensor was HC-SR04 ultrasonic sensor, the sensor emits an ultrasonic pulse each 0.3s to detect any obstruction between 2 and 400cm, finally they powered supply was a 7.4V 2400mAh lithium polymer battery.
-
-Sometimes is possible to combine behaviors like wall following and obstacle avoidance \citep{hacene2019fuzzy}, that allows to make a simpler design. The usual way to deal with the obstacle avoidance is to define first a safety distance and if any of the sensors detect a distance under that limit, the robot will switch from the main behavior to the obstacle avoidance behavior. The definition of rules based on which sensors have detected an obstacle \citep{tzou2009high} \citep{hacene2019fuzzy} can be a good option when no artificial intelligence or complex techniques are used for the avoidance although this may reduce the efficiency to complete the main task.
-
-Continuing with Obstacle avoidance in \citep{arcos2019optimal} presented another way to avoid an obstacle this way consists of use a time polynomial function to define the obstacle´s position, the method was used to satisfy such constraint computes the euclidean distance between the center of the robot and the center of the obstacle. That difference must to be bigger than a safe distance determined by the radius of the robot and the obstacle plus a security factor.
-
-\subsection{Speed control}
-The next step for the mobile robot was its movement for this we knew that we had to use control techniques to control the robot´s speed this is how we found this document \citep{abril2012analisis} that talks about if it´s necessary implement a control on a line tracker robot, because of this they made a comparison between a line tracker robot with fuzzy control that is a control technique that allows to work with information that is not accurate and the same robot but with a classic control. At the end of the document they conclude that with fuzzy control the mobile robot Robotino follows the desired trajectory receiving controller speeds up over 250m/s until 750m/s, on the other hand with the classic control the mobile robot Robotino can complete the desired trajectory but just with low speeds in addition we find another document that talks about the speed control with a PID controller, in \citep{thanh2019restaurant} they did a restaurant serving robot using double line-sensors following approach in combination with PID controller for stable speed outcome, the mobile robot is programmed to go to a specific table by mapping data and come back when it´s completed the task.Based on the line reading algorithm from two LED array line sensors implemented on micro controller.
-
-\subsection{Location system}
-Another thing to take in account its the location system because we need the real position of the robot to calculate the errors for the control that´s why we search how can we get the pose and position of the robot and we found this\citep{yuan2016rgb} where they did a location system with an Extend Kalman Filter(EKF) method to calculate robot position and pose also in \citep{tzou2009high} they made a location system using laser positioning system. The laser positioning system is used for rapid and precise positioning and guidance of the mobile robot. In other matters we found this document \citep{oltean2010position} that talks about a mobile robot that use 3 RFID readers with 13.56 MHz frequency are on the bottom of the robot and detect the RFID tags that are in the range of magnetic field of three RFID readers the RFID readers will obtain the absolute coordinates stored in the RFID tag and that´s how the robot reach the tables.The size of the RFID reader antenna
-is 2.2 2.2 × cm and the size of the tag is 2.8 2.8 × cm.
-
-
-
-
-\section{Fiducial markers}
-
-
-
-\subsection{ArUco markers}
-ArUco markers are very used for pose estimation and to implement automatic follow-up, for example, in the study of \citep{bacik2017autonomous} where ArUco markers are used for the navigation of a quadrocopter to make it follow a desired trajectory without any additional sensor, just using ArUco markers, in addition, they used ROS (Robotic Operating System), the open source software which is used for the mapping algorithms in that case. In \citep{jimenez2018sistema} we can see another application, in this case the cameras are static and the objective is to follow a object in the range vision of the cameras, the ArUco marker is used as a reference point for the pose estimation, which is cooperative, so it's necessary to combine the information of the two cameras to get better results. The fact that the cameras are statics is a problem when the object moves far away from the range vision, it's really important to have that in consideration as well as the issues that can generate the lighting changes in the environment at the moment of the detection. 
-
-The resolution of the cameras didn't mean a significant change in the results of the detection as is concluded in \citep{kalaitzakis2021fiducial}, while things like contrast, white balance and images produced with smoother edges can decrease the accuracy and precision of the detection. ArUco had similar results in therms of detection rate compared with other fiducial markers like STag, AprilTag and ARTag, requires less hardware resources, so it’s implementation can be cheaper, it had really good results but it’s sensitive to small markers size and larger distances as is mentioned too in \citep{ferrao2018detection}.     
-
-
- 
- 
- 
- 
-In the next table you can find some aplications directly related with our thesis:
-
-
-\begin{table}[h!]
-\caption{Direct applications}
-\begin{centering}
-\begin{tabular}{>{\centering}p{7cm}>{\centering}p{4cm}}
-\hline 
-\raggedright{}Description & \raggedright{}Reference\tabularnewline
-\hline 
-\raggedright{Implemetation of a waiter robot on a Pioneer 3DX robot} & \raggedright{}\citep{escudero2012robot}\tabularnewline
-\hline 
-\raggedright{}Mapping and location with a depth camera and movement base with gyroscope and odometry & \raggedright{}\citep{zhang2016approach}\tabularnewline
-\hline 
-\raggedright{}PID controller for stable speed and double-line sensor& \raggedright{}\citep{thanh2019restaurant}\tabularnewline
-\hline 
-\raggedright{}Reinforcement Q-learning PID Controller for a Restaurant Mobile Robot with Double Line-Sensors & \raggedright{}\citep{thanh2020reinforcement}\tabularnewline
-\hline 
-\raggedright{}Fuzzy Logic Based Control for Autonomous Mobile Robot Navigation& \raggedright{}\citep{omrane2016fuzzy}\tabularnewline
-\hline 
-\raggedright{}2 types of robots one to take the order and another to recive the dishes & \raggedright{}\citep{eksiri2015restaurant}\tabularnewline
-\hline 
-\end{tabular}
-\par\end{centering}
-\end{table}
-\newpage
-
-The implementation of the mobile robots affect positively the efficiency of a restaurant and also mitigate some charges that would have a human. We can see in this surveys the problems that present a normal restaurant.
-
-
-In the study of \citep{florez2011factores} you can see surveys conducted about sanitation problems in some restaurants, some of those problems are simultaneous handling of money and food (17\%), wearing jewlery (15,2\%),Long fingernails (8,9\%) inter alia. On the other hand in \citep{armendariz2012riesgos} they talk about the health problems of workers also they carried out surveys with these results:
-
-\begin{itemize}
-\item 100\% of the waiters expressed high level concentration and physical efforts.
-\item 87\% expressed forced work postures.
- 
-\item 80\% expressed that heavy handling is a risk in their professions.
-
-\end{itemize}
-
-
- 
- 
-\section{ROS} 
- ROS is a middleware that allows to control robots and make simulations quite close to the reality, it have been used most frequently in the recent years but it can be explored more, in \citep{osio2018desenvolupament} and \citep{zhang2020robot} are presented applications to real mobile robots through ROS where is remarkable the possibility of send commands to the robot using the local network and the easy integration of the computer vision with ROS. Another field of robotics where the use of ROS can be found is in the control of industrial arms as is presented in \citep{arents2018integration} where they integrate computer vision, artificial intelligence and the software Move It!, and as is mentioned there are ROS libraries, drivers and tools created for interfacing with industrial robots that prove the importance of ROS and how it can make the robot programming an easier task.
- 
- 
 
 
 \cleardoublepage
@@ -176,7 +184,7 @@ ArUco is a really useful open source library for marker detection through comput
     \label{fig:Aruco_bits}
 \end{figure}
 
-The wide number of marker id's and the accuracy in the detection of the Aruco markers and the fact that the library is available for Python makes it really appropriated to be used in this thesis work for the detection of each table. In the \autoref{fig:Aruco_detect}  we can see an example of the ArUco marker detection with Python and the Opencv library.
+The wide number of marker id's and the accuracy in the detection of the Aruco markers and the fact that the library is available for Python makes it really appropriated to be used in this thesis work for the detection of each table. In the \autoref{fig:Aruco_detect}  we can see an example of the ArUco marker detection with Python and the Opencv library. \autoref{eq:Distance}
 
 \begin{figure}[H]
     \centering
@@ -199,6 +207,70 @@ The coordinates shown in \autoref{fig:Aruco_detect}, represents the estimated po
 
 
 \section{Control design}
+\subsection{Motor speed control}
+In order to control the motor, first we needed to obtain the motor parameters for modeling and design the appropriate controller, we used the experimental methods introduced in {} and got the following values:
+\[b=0.1376\ N-m-s\]
+\[R_a=2.2\ \Omega\]
+\[L=0.1834\ H\]
+\[K_e=K_t=0.5115\frac{V}{rad/s}\]
+\[J=0.0099\ Kg\ast m^2\]
+Dynamic equations of the system:
+\[J\ddot{\theta}+b\dot{\theta}=Ki\ \]
+\[L\frac{di}{dt}+Ri=V-K\dot{\theta}\ \ \] 
+\subsubsection{State-space representation:}
+First, let's define the state variables as : $\theta, \dot{\theta},i$, then, the state equations can be written as:
+\[\frac{d\theta}{dt}=\dot{\theta}\]
+\[\frac{d\dot{\theta}}{dt}=-\frac{b}{J}\dot{\theta}+\frac{K}{J}i\]
+\[\frac{di}{dt}=-\frac{K}{L}\dot{\theta}-\frac{R}{L}i+\frac{V}{L}\]
+
+So, finally we have:
+\begin{equation}
+    \frac{d}{dt}\left[\begin{matrix}\theta\\\dot{\theta}\\i\\\end{matrix}\right]=\left[\begin{matrix}0&\ \ \ \ 1&\ \ \ \ \ \ 0\\0&-\frac{b}{J}&\ \ \ \ \ \frac{K}{J}\\0&-\frac{K}{L}&\ \ \ \ \ \frac{R}{L}\\\end{matrix}\right]\left[\begin{matrix}\theta\\\dot{\theta}\\i\\\end{matrix}\right]+\left[\begin{matrix}0\\0\\\frac{1}{L}\\\end{matrix}\right]V
+    \label{eq:State_space_3}
+\end{equation}
+\[y=[1\ 0\ 0]\left[\begin{matrix}\theta\\\dot{\theta}\\i\\\end{matrix}\right]\]
+
+\subsubsection{State-space control}
+The previous system is not C.C (Completely controllable) so we have to ignore the first state to deal with that problem and be able to design the controller:
+\[\frac{d}{dt}\left[\begin{matrix}\dot{\theta}\\i\\\end{matrix}\right]=\left[\begin{matrix}-\frac{b}{J}&\ \frac{K}{J}\\-\frac{K}{L}&\frac{R}{L}\\\end{matrix}\right]\left[\begin{matrix}\dot{\theta}\\i\\\end{matrix}\right]+\left[\begin{matrix}0\\\frac{1}{L}\\\end{matrix}\right]V\]
+\[y=[1\ 0]\left[\begin{matrix}\dot{\theta}\\i\\\end{matrix}\right]\]
+We discrete the system, and define the controller, which it's going to be designed to track step reference, so the controller is defined in the state-space form as:
+\[x_c (k+1)=[1] x_c  (k)+[1]e(k)\]
+Using Matlab we find the gains for the control with $t_s=0.4 s$ as setting time, obtaining:
+
+\[k_c=12.2503\]
+\[k_p=[20.1927\ \ \ 48.4480]\]
+
+\subsubsection{State-space observer}
+
+Now, as we only have direct measurement of the position through encoders, we must design an observer for the estimation of the velocity and the current in order to complete the full state feedback control scheme, in this case we need the \ref{eq:State_space_3} representation:
+
+We make a copy of the system:
+\[\hat{x}\left(k+1\right)=A\hat{x}+L(y-C\hat{x})\ \]
+\[\hat{x}\left(k+1\right)=(A-LC)\hat{x}+Ly\]
+Using Matlab, we find the values for the L vector with and obtain the following observer matrices:
+\[\left[\begin{matrix}\theta(k+1)\\\dot{\theta}(k+1)\\i(k+1)\\\end{matrix}\right]=\left[\begin{matrix}-0.4178&\ \ \ \ 0.0342&0.0413\\-4.7212&0.4096&1.2719\\1.0504&-0.0688&0.4560\\\end{matrix}\right]\left[\begin{matrix}\theta(k)\\\dot{\theta}(k)\\i(k)\\\end{matrix}\right]+\left[\begin{matrix}0.0003&1.4178\\0.0173&4.7212\\0.0150&-1.0504\\\end{matrix}\right]\left[\begin{matrix}u(k)\\y(k)\\\end{matrix}\right]\]
+
+\begin{figure}[h!]
+    \centering
+ 	\includegraphics[trim=0 0 0 0,clip,width=0.9\textwidth]{Figs/Control_motor.pdf}
+    \caption{Control scheme with Luenberger's observer}
+    \label{fig:Speed_Control_scheme}
+\end{figure}
+
+In the next figure is shown the response of the system in closed loop with the feedback of the estimated states
+
+\begin{figure}[h!]
+    \centering
+ 	\includegraphics[trim=0 0 0 0,clip,width=0.6\textwidth]{Figs/Control_motor.eps}
+    \caption{Control response}
+    \label{fig:Speed_Control_response}
+\end{figure}
+
+
+
+
+\newpage
 \subsection{Differential drive robot}
 A differential drive robot consists in a robot with two motors attached to each wheel, this make possible to turn the robot but it can't move in any direction at any moment, it have to turn first. The robot can be represented in a kinematic form as a point moving in the space, this is known as the unicycle model, which translational and angular velocities are defined by:
 \begin{equation}
@@ -316,7 +388,7 @@ The Raspberry Pi is a single-board computer commonly used in robotics and IoT ap
 
 \begin{figure}[h!]
     \centering
- 	\includegraphics[trim=0 0 0 0,clip,width=0.4\textwidth]{Figs/Raspberry1.png}
+ 	\includegraphics[trim=0 0 0 0,clip,width=0.3\textwidth]{Figs/Raspberry1.png}
     \caption{Raspberry Pi Model B+}
     \label{fig:RPI}
 \end{figure}
@@ -475,77 +547,6 @@ The selected motor is a JGA25-370 DC motor with a torque of 10 Kg-cm what makes 
 \end{table}
 
 \newpage
-\section{Method}
-
-Para la realización del proyecto se elige la metodología de investigación de la ruta crítica.
-\begin{table}[h!]
-\caption{Tabla para el análisis PERT}
-\begin{centering}
-\par\end{centering}
-\begin{centering}
-\begin{tabular}{l>{\raggedright}p{5cm}lllc}
-\hline 
-\textbf{ID} & \textbf{Actividad} & \textbf{a(semanas)} & \textbf{m(semanas)} & \textbf{b(semanas)} & \textbf{T}\tabularnewline
-\hline 
-\textbf{A} & Introducción a visión por computadora & 2 & 4 & 6 & 4\tabularnewline
-\hline 
-\textbf{B} & Recopilar información & 3 & 5 & 7 & 5\tabularnewline
-\hline 
-\textbf{C} & Organizar información & 2 & 4 & 6 & 4\tabularnewline
-\hline 
-\textbf{D} & Pruebas detección marcadores ArUco & 1 & 3 & 5 & 3\tabularnewline
-\hline 
-\textbf{E} & Introducción a entornos de simulación como Robotino view, Gazebo y
-ROS & 4 & 5 & 7 & 5\tabularnewline
-\hline 
-\textbf{F} & Revisión de propuesta de anteproyecto y correcciones & 2 & 4 & 5 & 4\tabularnewline
-\hline 
-\textbf{G} & Control del Robotino y creación de técnicas para evasión de obstáculos & 6 & 9 & 13 & 9\tabularnewline
-\hline 
-\textbf{H} & Pruebas y correcciones & 2 & 4 & 5 & 4\tabularnewline
-\hline 
-\end{tabular}
-\par\end{centering}
-\centering{}
-\end{table}
-
-Donde $a$ es un tiempo optimista para la realización de la actividad, $m$ es un tiempo medio, $b$ es un tiempo pesimista y $T$ está dada por: 
-\[T=\frac{(a+4m+b)}{6}\]
-\newpage
-\begin{table}[h!]
-\caption{Tabla de actividades planificadas según la propuesta de investigación}
-\begin{centering}
-\begin{tabular}{l>{\raggedright}p{5cm}ll}
-\hline 
-\textbf{ID} & \textbf{Actividad} & \textbf{Actividad predecesora} & \textbf{Tiempo(Semanas)}\tabularnewline
-\hline 
-\textbf{A} & Introducción a visión por computadora & Ninguna  & 4\tabularnewline
-\hline 
-\textbf{B} & Recopilar información & A & 5\tabularnewline
-\hline 
-\textbf{C} & Organizar información & A-B & 4\tabularnewline
-\hline 
-\textbf{D} & Pruebas detección marcadores ArUco & A-B-C & 3\tabularnewline
-\hline 
-\textbf{E} & Introducción a entornos de simulación como Robotino view, Gazebo y
-ROS & A-B-C-D & 5\tabularnewline
-\hline 
-\textbf{F} & Revisión de propuesta de anteproyecto y correcciones & A-B-C-D-E & 4\tabularnewline
-\hline 
-\textbf{G} & Control del Robotino y creación de técnicas para evasión de obstáculos & A-B-C-D-E-F & 9\tabularnewline
-\hline 
-\textbf{H} & Pruebas y correcciones & A-B-C-D-E-F-G & 4\tabularnewline
-\hline 
-\end{tabular}
-\par\end{centering}
-\end{table}
-
-\begin{figure}[h!]
-    \centering
-    \resizebox*{14cm}{!}{\includegraphics{Figs/RedAON2.JPG}}
-    \caption{Diagrama PERT para el proyecto}
-    \label{fig:PERT}
-\end{figure}
 
 \cleardoublepage
 \chapter{Conclusion}
